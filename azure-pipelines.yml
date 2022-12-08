@@ -47,7 +47,7 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/skip-step'
     targetType: 'inline'
     script: |
-      # Write-Host "LASTEXITCODE : $LASTEXITCODE"
+      Write-Host "LASTEXITCODE : $LASTEXITCODE"
       $plan = $(terraform show -json tfplan | ConvertFrom-Json)
       $actions = $plan.resource_changes.change.actions
       Write-Host "Terraform actions : $actions"
